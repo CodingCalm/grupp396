@@ -31,6 +31,6 @@ public class Book extends Item implements PriceableWithVAT6{
     // Override toString() for Book-specific representation
     @Override
     public String toString() {
-        return getName() + author + price + bound;
+        return "name : " + getName() + "author : " + author + "price : " + price + "bound? : " + bound;
     }
 }
