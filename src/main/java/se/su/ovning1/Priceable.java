@@ -7,5 +7,4 @@ public interface Priceable {
     public default double getPriceWithVAT(){
         return getPrice() * getVAT();
     }
-
 }
