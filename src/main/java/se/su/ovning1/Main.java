@@ -12,6 +12,7 @@ public class Main {
         Item lp1 = new CompactDisc("Punisher", "Phoebe Bridgers", 2020, 10, 200);
         Item lp2 = new LongPlay("What Kinda Music", "Tom Misch", 2020, 10, 150);
         Item lp3 = new LongPlay("Little Oblivions", "Julien Baker", 2021, 10, 120);
+
         Order order1 = new Order(book1, book2bound);
 
         System.out.println(order1.getReceipt());

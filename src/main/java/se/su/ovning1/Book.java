@@ -15,22 +15,14 @@ public class Book extends Item implements PriceableWithVAT6{
 
     @Override
     public double getPrice(){
+        if(bound){
+            return price * 1.3;
+        }
         return price;
     }
 
     @Override
-    public double getVAT() {
-        return 6;
-    }
-
-    @Override
-    public double getPriceWithVAT() {
-        return price * (1 + getVAT());
-    }
-
-    // Override toString() for Book-specific representation
-    @Override
     public String toString() {
-        return "name : " + getName() + "author : " + author + "price : " + price + "bound? : " + bound;
+        return "Book " + "name : " + getName() + "author : " + author + "price : " + getPrice() + "bound? : " + bound + "price+VAT: " + getPriceWithVAT();
     }
 }
