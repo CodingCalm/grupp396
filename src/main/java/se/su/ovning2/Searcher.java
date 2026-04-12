@@ -77,3 +77,4 @@ public class Searcher implements SearchOperations {
     throw new UnsupportedOperationException("Unimplemented method 'offerHasNewRecordings'");
   }
 }
+//HEJ 
