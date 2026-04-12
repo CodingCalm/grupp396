@@ -20,15 +20,6 @@ public class Searcher implements SearchOperations {
   private Set<Recording> all = newHashSet<>();
 
   public Searcher(Collection<Recording> data) {
-    Collection<Recording> recordings = data;
-    for(Recording recordings : data){
-      all.add(r);
-      artists.add(r.getArtist());
-      titles.add(r.getTitle());
-      byTitle.put(r.getTitle(), r);
-    }
-
-  public Searcher(Collection<Recording> data) {
     for (Recording recording : data) {
       artists.add(recording.getArtist());
       this.genres.addAll(recording.getGenre());
