@@ -50,9 +50,9 @@ public class Recording {
     if(this == o) return true;
     if(o instanceof Recording r){
       return this.getArtist().equals(r.getArtist())
-              && this.getGenre().equals(r.getGenre())
+              //&& this.getGenre().equals(r.getGenre())
               && this.getTitle().equals(r.getTitle())
-              && this.getType().equals(r.getType())
+              //&& this.getType().equals(r.getType())
               && this.getYear() == r.getYear();
     }
     return false;
