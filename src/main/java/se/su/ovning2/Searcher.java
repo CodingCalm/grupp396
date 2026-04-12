@@ -7,17 +7,17 @@ import java.util.SortedSet;
 
 public class Searcher implements SearchOperations {
 
-  Set<String> artists = new HashSet<>();
-  Set<String> genres = new HashSet<>();
-  Set<String> titles = new HashSet<>();
+  private Set<String> artists = new HashSet<>();
+  private Set<String> genres = new HashSet<>();
+  private Set<String> titles = new HashSet<>();
   //private final Set<String> artists = new HashSet<>();
   //private final Set<String> genres = new HashSet<>();
 
-  Map<String> byArtist = new HashMap<>();
-  Map<String> byGenre = new HashMap<>();
-  Map<String> byTitle = new HashMap<>();
-  TreeMap<Integer, Set<Recording>> byYear = new TreeMap<>();
-  Set<Recording> all = newHashSet<>();
+  private Map<String> byArtist = new HashMap<>();
+  private Map<String> byGenre = new HashMap<>();
+  private Map<String> byTitle = new HashMap<>();
+  private TreeMap<Integer, Set<Recording>> byYear = new TreeMap<>();
+  private Set<Recording> all = newHashSet<>();
 
   public Searcher(Collection<Recording> data) {
     Collection<Recording> recordings = data;
