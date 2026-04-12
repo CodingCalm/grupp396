@@ -60,6 +60,6 @@ public class Recording {
 
   @Override
   public int hashCode(){
-    return Objects.hash(this.artist, this.genre, this.title, this.type, this.year);
+    return Objects.hash(this.artist this.title, this.year);
   }
 }
