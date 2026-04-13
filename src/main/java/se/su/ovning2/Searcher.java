@@ -1,28 +1,27 @@
 package se.su.ovning2;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.SortedSet;
+import java.util.*;
 
 public class Searcher implements SearchOperations {
 
-  private Set<String> artists = new HashSet<>();
-  private Set<String> genres = new HashSet<>();
-  private Set<String> titles = new HashSet<>();
-  //private final Set<String> artists = new HashSet<>();
-  //private final Set<String> genres = new HashSet<>();
+  private final Set<String> artists = new HashSet<>();
+  private final Set<String> genres = new HashSet<>();
+  private final Set<String> titles = new HashSet<>();
+  private final Map<String, Recording> recordingsTitle = new HashMap<>();
+  private final Map<Integer, Recording> recordingsYear = new HashMap<>();
 
-  private Map<String> byArtist = new HashMap<>();
-  private Map<String> byGenre = new HashMap<>();
-  private Map<String> byTitle = new HashMap<>();
-  private TreeMap<Integer, Set<Recording>> byYear = new TreeMap<>();
-  private Set<Recording> all = newHashSet<>();
+
+
+
 
   public Searcher(Collection<Recording> data) {
-    for (Recording recording : data) {
-      artists.add(recording.getArtist());
-      this.genres.addAll(recording.getGenre());
+    for (Recording r : data) {
+      this.artists.add(r.getArtist());
+      this.genres.addAll(r.getGenre());
+      this.titles.add(r.getTitle());
+      this.recordingsTitle.put(r.getTitle(), r);
+      this.recordingsYear.put(r.getYear(), r);
+
     }
   }
 
@@ -38,39 +37,40 @@ public class Searcher implements SearchOperations {
 
   @Override
   public long numberOfTitles() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'numberOfTitles'");
+    return titles.size();
   }
 
   @Override
   public boolean doesArtistExist(String name) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'doesArtistExist'");
+    return artists.contains(name);
   }
 
   @Override
   public Collection<String> getGenres() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getGenres'");
+    return Collections.unmodifiableSet(genres);
   }
 
   @Override
   public Recording getRecordingByName(String title) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getRecordingByName'");
+    return recordingsTitle.get(title);
   }
 
   @Override
   public Collection<Recording> getRecordingsAfter(int year) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'getRecordingsAfter'");
+    var result = new HashSet<Recording>();
+
+    for(Integer i : recordingsYear.keySet()){
+      if(year > i){
+        result.add(recordingsYear.get(i));
+      }
+    }
+    return result;
+
   }
 
   @Override
   public SortedSet<Recording> getRecordingsByArtistOrderedByYearAsc(String artist) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException(
-        "Unimplemented method 'getRecordingsByArtistOrderedByYearAsc'");
+
   }
 
   @Override
